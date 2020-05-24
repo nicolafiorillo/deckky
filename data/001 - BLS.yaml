@@ -1,14 +1,14 @@
-id: 1
+group_id: CF4CBD36-B6E4-48B2-B1CA-37E6B174CCD3
 counter: 1
-lezione: BLS e Primo Soccorso
+title: BLS e Primo Soccorso
 
 cards:
   -
-    id: 123
-    domanda: Cos'è il BLS?
-    risposta: Basic Life Support
+    card_id: A415A0B3-0932-441D-9540-975646C647AE
+    question: Cos'è il BLS?
+    answer: Basic Life Support
 
   -
-    id: 123
-    domanda: Cos'è il BLS?
-    risposta: Basic Life Support
+    card_id: A537C572-4107-4347-AB8F-61C6A9F3FA48
+    question: Cos'è il PBLS?
+    answer: Pediatric Basic Life Support
