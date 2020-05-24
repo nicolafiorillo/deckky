@@ -1,0 +1,14 @@
+id: 1
+counter: 1
+lezione: BLS e Primo Soccorso
+
+cards:
+  -
+    id: 123
+    domanda: Cos'è il BLS?
+    risposta: Basic Life Support
+
+  -
+    id: 123
+    domanda: Cos'è il BLS?
+    risposta: Basic Life Support
