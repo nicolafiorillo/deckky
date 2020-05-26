@@ -1,0 +1,14 @@
+group_id: B6F239DD-8C07-4D04-ACF0-4342B7065C8B
+counter: 1
+title: Group test 1
+
+cards:
+  -
+    card_id: 6603C14E-38B6-4DE4-AE97-B5923CAB9708
+    question: Question 1 group 1?
+    answer: Answer 1 group 1
+
+  -
+    card_id: 1C46A6FA-ECE2-4A61-B3C6-044F4B7523D9
+    question: Question 2 group 1?
+    answer: Answer 2 group 1

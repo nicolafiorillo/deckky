@@ -1,0 +1,14 @@
+group_id: D3E016B2-4F0B-4EF3-BE75-F5CB1140B185
+counter: 2
+title: Group test 2
+
+cards:
+  -
+    card_id: DA59723C-76A3-4670-A8B8-4D2135D20804
+    question: Question 1 group 2?
+    answer: Answer 1 group 2
+
+  -
+    card_id: 33EEDC93-F7EA-4117-9526-2A365DEC0883
+    question: Question 2 group 2?
+    answer: Answer 2 group 2
