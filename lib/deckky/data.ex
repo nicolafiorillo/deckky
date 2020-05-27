@@ -122,13 +122,13 @@ defmodule Deckky.Data do
   end
 
   defp add_correct_result(results, card_id) do
-    results |> Map.update!(card_id, fn %{corrects: corrects} = result_card ->
+    results |> Map.update(card_id, %{popped: 0, corrects: 1, errors: 0}, fn %{corrects: corrects} = result_card ->
       %{result_card | corrects: corrects + 1}
     end)
   end
 
   defp add_error_result(results, card_id) do
-    results |> Map.update!(card_id, fn %{errors: errors} = result_card ->
+    results |> Map.update(card_id, %{popped: 1, corrects: 0, errors: 1}, fn %{errors: errors} = result_card ->
       %{result_card | errors: errors + 1}
     end)
   end

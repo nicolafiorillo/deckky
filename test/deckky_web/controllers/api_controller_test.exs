@@ -23,4 +23,28 @@ defmodule DeckkyWeb.PApiControllerTest do
       assert json_response(conn, 400)["error"] == "argument not found"
     end
   end
+
+  describe "card" do
+    test "send ok", %{conn: conn} do
+      card_id = "6603C14E-38B6-4DE4-AE97-B5923CAB9708"
+
+      conn = get(conn, Routes.api_path(conn, :set_correct, card_id))
+      assert json_response(conn, 200)
+      :timer.sleep(100)
+
+      assert Deckky.Data.results()[card_id].corrects == 1
+      assert Deckky.Data.results()[card_id].errors == 0
+    end
+
+    test "send error", %{conn: conn} do
+      card_id = "33EEDC93-F7EA-4117-9526-2A365DEC0883"
+
+      conn = get(conn, Routes.api_path(conn, :set_error, card_id))
+      assert json_response(conn, 200)
+      :timer.sleep(100)
+
+      assert Deckky.Data.results()[card_id].corrects == 0
+      assert Deckky.Data.results()[card_id].errors == 1
+    end
+  end
 end

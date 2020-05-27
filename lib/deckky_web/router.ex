@@ -10,5 +10,8 @@ defmodule DeckkyWeb.Router do
 
     get "/", ApiController, :status
     get "/argument/:argument_id/pick", ApiController, :pick_a_question
+
+    get "/card/:card_id/ok", ApiController, :set_correct
+    get "/card/:card_id/error", ApiController, :set_error
   end
 end
