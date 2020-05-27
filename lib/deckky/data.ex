@@ -5,6 +5,8 @@ defmodule Deckky.Data do
   use GenServer
   require Logger
 
+  @type t :: %__MODULE__{}
+
   defstruct arguments: %{}, results: %{}
 
   @spec start_link(any) :: :ignore | {:error, any} | {:ok, pid}
