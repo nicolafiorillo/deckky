@@ -2,8 +2,7 @@
 
 set -e
 
-BUILD_ROOT=./_build
-APP_ROOT=~/deckky
+APP_SOURCE_ROOT=./deckky
 
 msinstall()
 {
@@ -24,23 +23,16 @@ msinstall()
       echo "Elixir not installed"; exit 1;
     fi
 
-    echo "Build dir: ${BUILD_ROOT}"
-    echo "App dir: ${APP_ROOT}"
-
-    rm -rf ${BUILD_ROOT} && mkdir ${BUILD_ROOT} && cd ${BUILD_ROOT}
+    rm -rf ${APP_SOURCE_ROOT}
 
     git clone --depth 1 https://github.com/nicolafiorillo/deckky.git || { echo "git failed"; exit 1; }
 
-    cd ./deckky/
+    cd ${APP_SOURCE_ROOT}
 
     # Resolving dependencies
     MIX_ENV=${ENVIRONMENT} mix local.hex --force || { echo "getting local.hex failed"; exit 1; }
     MIX_ENV=${ENVIRONMENT} mix local.rebar --force || { echo "getting local.rebar failed"; exit 1; }
     MIX_ENV=${ENVIRONMENT} mix deps.get
-
-    # Compile
-    echo "Compiling..."
-    MIX_ENV=${ENVIRONMENT} mix compile || { echo "mix compile failed"; exit 1; }
 
 #    echo "Generating static manifest..."
 #    MIX_ENV=${ENVIRONMENT} mix phx.digest || { echo "mix phx.digest failed"; exit 1; }
@@ -70,13 +62,13 @@ msinstall()
     ./bin/deckky start
 
     # check app status
-    sleep 6
-    if [[ $(./bin/deckky ping) == pong ]]; then
-        echo "Deckky is running"
-    else
-        echo "Deckky is NOT running"
-        exit 1;
-    fi
+    # sleep 6
+    # if [[ $(./bin/deckky ping) == pong ]]; then
+    #     echo "Deckky is running"
+    # else
+    #     echo "Deckky is NOT running"
+    #     exit 1;
+    # fi
 
     echo "Deploy done."
 }

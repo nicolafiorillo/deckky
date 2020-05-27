@@ -10,8 +10,18 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :deckky, DeckkyWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "deckky.com", port: 4000],
+  http: [:inet6, port: 4000]
+
+# ## Using releases (Elixir v1.9+)
+#
+# If you are doing OTP releases, you need to instruct Phoenix
+# to start each relevant endpoint:
+#
+config :deckky, DeckkyWeb.Endpoint, server: true
+#
+# Then you can assemble a release by calling `mix release`.
+# See `mix help release` for more information.
 
 # Do not print debug messages in production
 config :logger, level: :info

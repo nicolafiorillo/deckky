@@ -29,5 +29,5 @@ deckky-*.tar
 
 /.elixir_ls/
 
-/**/*.secret.exs
+/**/**.secret.exs
 
