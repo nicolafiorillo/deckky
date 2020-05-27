@@ -18,7 +18,9 @@ config :deckky, DeckkyWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-config :deckky, DeckkyWeb.Endpoint, server: true
+config :deckky, DeckkyWeb.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE") || raise "SECRET_KEY_BASE",
+  server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
@@ -62,4 +64,3 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-import_config "prod.secret.exs"
