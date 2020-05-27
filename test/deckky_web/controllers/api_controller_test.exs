@@ -13,10 +13,14 @@ defmodule DeckkyWeb.PApiControllerTest do
   end
 
   describe "argument" do
-    test "pick_a_question", %{conn: conn} do
+    test "pick a question", %{conn: conn} do
       conn = get(conn, Routes.api_path(conn, :pick_a_question, "5D70573F-6FAB-459F-AE85-4F5A4B4B6A0C"))
-      assert json_response(conn, 200)
-      # check question
+      assert json_response(conn, 200)["card"]
+    end
+
+    test "invalid argument", %{conn: conn} do
+      conn = get(conn, Routes.api_path(conn, :pick_a_question, "ABC123"))
+      assert json_response(conn, 400)["error"] == "argument not found"
     end
   end
 end

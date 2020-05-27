@@ -67,7 +67,7 @@ defmodule Deckky.Data do
     |> pick_a_card(results)
     |> case do
       {:error, _} = err -> {:reply, err, state}
-      {:ok, card, results} -> {:reply, card, %Deckky.Data{state | results: results}}
+      {:ok, card, results} -> {:reply, {:ok, card}, %Deckky.Data{state | results: results}}
     end
   end
 
