@@ -28,3 +28,6 @@ deckky-*.tar
 /priv/static/
 
 /.elixir_ls/
+
+/**/*.secret.exs
+
