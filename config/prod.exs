@@ -19,7 +19,7 @@ config :deckky, DeckkyWeb.Endpoint,
 # to start each relevant endpoint:
 #
 config :deckky, DeckkyWeb.Endpoint,
-  secret_key_base: {:system, "SECRET_KEY_BASE"} || raise "missing SECRET_KEY_BASE"),
+  secret_key_base: {:system, "SECRET_KEY_BASE"} || raise "missing SECRET_KEY_BASE",
   server: true
 #
 # Then you can assemble a release by calling `mix release`.
