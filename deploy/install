@@ -1,0 +1,95 @@
+#!/bin/bash
+
+set -e
+
+BUILD_ROOT=./_build
+APP_ROOT=~/deckky
+
+msinstall()
+{
+    ENVIRONMENT=$1
+    echo "Installing ${ENVIRONMENT} environment on this machine"
+
+    if hash erl 2>/dev/null; then
+      erlver=$(erl -noshell -eval 'io:fwrite("~s\n", [erlang:system_info(otp_release)]).' -s erlang halt)
+      echo "Erlang version: ${erlver}"
+    else
+      echo "Erlang not installed"; exit 1;
+    fi
+
+    if hash elixir 2>/dev/null; then
+      elixirver=$(elixir -e "IO.puts System.version")
+      echo "Elixir installed: ${elixirver}"
+    else
+      echo "Elixir not installed"; exit 1;
+    fi
+
+    echo "Build dir: ${BUILD_ROOT}"
+    echo "App dir: ${APP_ROOT}"
+
+    rm -rf ${BUILD_ROOT} && mkdir ${BUILD_ROOT} && cd ${BUILD_ROOT}
+
+    git clone --depth 1 https://github.com/nicolafiorillo/deckky.git || { echo "git failed"; exit 1; }
+
+    cd ./deckky/
+
+    # Resolving dependencies
+    MIX_ENV=${ENVIRONMENT} mix local.hex --force || { echo "getting local.hex failed"; exit 1; }
+    MIX_ENV=${ENVIRONMENT} mix local.rebar --force || { echo "getting local.rebar failed"; exit 1; }
+    MIX_ENV=${ENVIRONMENT} mix deps.get
+
+    # Compile
+    echo "Compiling..."
+    MIX_ENV=${ENVIRONMENT} mix compile || { echo "mix compile failed"; exit 1; }
+
+#    echo "Generating static manifest..."
+#    MIX_ENV=${ENVIRONMENT} mix phx.digest || { echo "mix phx.digest failed"; exit 1; }
+
+    echo "Generating release package..."
+    MIX_ENV=${ENVIRONMENT} mix release || { echo "mix release failed"; exit 1; }
+
+    # stop before installation
+    if [ -f ${APP_ROOT}/bin/deckky ]; then
+      echo "Stopping Deckky..."
+      ${APP_ROOT}/bin/deckky stop || true
+    fi
+
+    mkdir -p ${APP_ROOT}
+
+#    cp ${BUILD_ROOT}/${ENVIRONMENT}/rel/deckky/releases/${PT_VERSION}/deckky.tar.gz ${APP_ROOT}/${TAR_NAME} || { echo "copying ${APP_ROOT}/${TAR_NAME} failed"; exit 1; }
+
+#    cd ${APP_ROOT}
+
+#    echo "Installing new package..."
+#    tar xfz ${TAR_NAME}
+
+    # cleaning up
+    # rm -f ${APP_ROOT}/${TAR_NAME}
+
+    echo "Starting Deckky..."
+    ./bin/deckky start
+
+    # check app status
+    sleep 6
+    if [[ $(./bin/deckky ping) == pong ]]; then
+        echo "Deckky is running"
+    else
+        echo "Deckky is NOT running"
+        exit 1;
+    fi
+
+    echo "Deploy done."
+}
+
+main() {
+    while true; do
+        read -p "This will DESTROY the current app and data. Are you sure to install (yN)?" yn
+        case $yn in
+            [Yy]* ) msinstall $1; break;;
+            [Nn]* ) echo "Nothing to do"; exit;;
+            * ) echo "Nothing to do"; exit;;
+        esac
+    done
+}
+
+main prod

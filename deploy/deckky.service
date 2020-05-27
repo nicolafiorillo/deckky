@@ -1,0 +1,32 @@
+# Installation on CentOS:
+#   sudo cp deckky.service /etc/systemd/system/multi-user.target.wants/
+#   sudo chmod 777 /etc/systemd/system/multi-user.target.wants/deckky.service
+#   sudo systemctl enable deckky.service
+#
+# usage:
+#   sudo systemctl start deckky
+#   sudo systemctl restart deckky
+#   sudo systemctl stop deckky
+
+[Unit]
+Description=Deckky service
+After=network.target
+ 
+[Service]
+Type=forking
+User=centos
+ExecStart=/home/deckky/deckky/bin/deckky start
+ExecReload=/home/deckky/deckky/bin/deckky restart
+ExecStop=/home/deckky/deckky/bin/deckky stop
+
+#ExecStart=/home/deckky/deckky/bin/deckky start
+#ExecReload=/home/deckky/deckky/bin/deckky restart
+#ExecStop=/home/deckky/deckky/bin/deckky stop
+
+#Automatic restart by systemd
+#Restart=on-failure
+#Time for system to wait before restart
+#Restartsec=42s
+ 
+[Install]
+WantedBy=multi-user.target
