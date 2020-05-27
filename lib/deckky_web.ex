@@ -23,6 +23,8 @@ defmodule DeckkyWeb do
 
       import Plug.Conn
       import DeckkyWeb.Gettext
+      import DeckkyWeb.Response
+
       alias DeckkyWeb.Router.Helpers, as: Routes
     end
   end
