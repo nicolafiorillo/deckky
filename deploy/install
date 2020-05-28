@@ -2,7 +2,7 @@
 
 set -e
 
-APP_SOURCE_ROOT=./deckky
+APP_SOURCE_ROOT=./deckky.build
 
 msinstall()
 {
@@ -25,7 +25,7 @@ msinstall()
 
     rm -rf ${APP_SOURCE_ROOT}
 
-    git clone --depth 1 https://github.com/nicolafiorillo/deckky.git || { echo "git failed"; exit 1; }
+    git clone --depth 1 https://github.com/nicolafiorillo/deckky.git ${APP_SOURCE_ROOT}|| { echo "git failed"; exit 1; }
 
     cd ${APP_SOURCE_ROOT}
 
@@ -40,35 +40,13 @@ msinstall()
     echo "Generating release package..."
     MIX_ENV=${ENVIRONMENT} mix release || { echo "mix release failed"; exit 1; }
 
-    # stop before installation
-    if [ -f ${APP_ROOT}/bin/deckky ]; then
-      echo "Stopping Deckky..."
-      ${APP_ROOT}/bin/deckky stop || true
-    fi
-
-    mkdir -p ${APP_ROOT}
-
-#    cp ${BUILD_ROOT}/${ENVIRONMENT}/rel/deckky/releases/${PT_VERSION}/deckky.tar.gz ${APP_ROOT}/${TAR_NAME} || { echo "copying ${APP_ROOT}/${TAR_NAME} failed"; exit 1; }
-
-#    cd ${APP_ROOT}
-
-#    echo "Installing new package..."
-#    tar xfz ${TAR_NAME}
-
-    # cleaning up
-    # rm -f ${APP_ROOT}/${TAR_NAME}
-
+    pwd
+    mv ./_build/prod/rel/deckky ..
+    cd ..
+    rm -rf ${APP_SOURCE_ROOT}
+    
     echo "Starting Deckky..."
-    ./bin/deckky start
-
-    # check app status
-    # sleep 6
-    # if [[ $(./bin/deckky ping) == pong ]]; then
-    #     echo "Deckky is running"
-    # else
-    #     echo "Deckky is NOT running"
-    #     exit 1;
-    # fi
+    ./deckky/bin/deckky start
 
     echo "Deploy done."
 }

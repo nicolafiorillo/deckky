@@ -11,7 +11,7 @@ defmodule Deckky.Data do
 
   @spec start_link(any) :: :ignore | {:error, any} | {:ok, pid}
   def start_link(_opts \\ []) do
-    folder = Path.join(File.cwd!(), "data/")
+    folder = Path.join(:code.priv_dir(:deckky), "data/")
     {:ok, folders} = folder |> File.ls()
     arguments =
       folders
