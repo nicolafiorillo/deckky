@@ -8,3 +8,6 @@ config :deckky, DeckkyWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :injex,
+  persistence: Deckky.Persistence.InMemory

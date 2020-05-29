@@ -12,6 +12,7 @@ defmodule Deckky.Application do
       DeckkyWeb.Endpoint,
       # Starts a worker by calling: Deckky.Worker.start_link(arg)
       # {Deckky.Worker, arg},
+      {Deckky.Persistence, []},
       {Deckky.Data, []}
     ]
 

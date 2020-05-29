@@ -32,9 +32,13 @@ defmodule DeckkyWeb.PApiControllerTest do
       assert json_response(conn, 200)
       :timer.sleep(100)
 
-      assert Deckky.Data.results()[card_id].corrects == 1
-      assert Deckky.Data.results()[card_id].errors == 0
+      card = Deckky.Data.results() |> find_card(card_id)
+
+      assert card.c == 1
+      assert card.e == 0
     end
+
+    defp find_card(cards, card_id), do: Enum.find(cards, fn c -> c.id == card_id end)
 
     test "send error", %{conn: conn} do
       card_id = "33EEDC93-F7EA-4117-9526-2A365DEC0883"
@@ -43,8 +47,10 @@ defmodule DeckkyWeb.PApiControllerTest do
       assert json_response(conn, 200)
       :timer.sleep(100)
 
-      assert Deckky.Data.results()[card_id].corrects == 0
-      assert Deckky.Data.results()[card_id].errors == 1
+      card = Deckky.Data.results() |> find_card(card_id)
+
+      assert card.c == 0
+      assert card.e == 1
     end
   end
 end

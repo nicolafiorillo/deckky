@@ -9,25 +9,13 @@ msinstall()
     ENVIRONMENT=$1
     echo "Installing ${ENVIRONMENT} environment on this machine"
 
-    if hash erl 2>/dev/null; then
-      erlver=$(erl -noshell -eval 'io:fwrite("~s\n", [erlang:system_info(otp_release)]).' -s erlang halt)
-      echo "Erlang version: ${erlver}"
-    else
-      echo "Erlang not installed"; exit 1;
-    fi
-
-    if hash elixir 2>/dev/null; then
-      elixirver=$(elixir -e "IO.puts System.version")
-      echo "Elixir installed: ${elixirver}"
-    else
-      echo "Elixir not installed"; exit 1;
-    fi
-
     rm -rf ${APP_SOURCE_ROOT}
 
     git clone --depth 1 https://github.com/nicolafiorillo/deckky.git ${APP_SOURCE_ROOT}|| { echo "git failed"; exit 1; }
 
     cd ${APP_SOURCE_ROOT}
+
+    asdf install
 
     # Resolving dependencies
     MIX_ENV=${ENVIRONMENT} mix local.hex --force || { echo "getting local.hex failed"; exit 1; }

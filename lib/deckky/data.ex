@@ -4,10 +4,11 @@ defmodule Deckky.Data do
   """
   use GenServer
   require Logger
+  alias Deckky.Persistence
 
   @type t :: %__MODULE__{}
 
-  defstruct arguments: %{}, results: %{}
+  defstruct arguments: %{}
 
   @spec start_link(any) :: :ignore | {:error, any} | {:ok, pid}
   def start_link(_opts \\ []) do
@@ -37,6 +38,7 @@ defmodule Deckky.Data do
           Map.put(acc, argument, groups)
         end)
 
+    Logger.info("Data started")
     {:ok, %Deckky.Data{arguments: arguments}}
   end
 
@@ -61,31 +63,35 @@ defmodule Deckky.Data do
     {:reply, get_argument_groups(arguments, argument_id), state}
   end
 
-  def handle_call(:get_results, _from, %Deckky.Data{results: results} = state), do: {:reply, results, state}
+  def handle_call(:get_results, _from, state) do
+    {:reply, Persistence.results(), state}
+  end
 
-  def handle_call({:random_card, argument_id}, _from, %Deckky.Data{arguments: arguments, results: results} = state) do
+  def handle_call({:random_card, argument_id}, _from, %Deckky.Data{arguments: arguments} = state) do
     arguments
     |> get_argument_groups(argument_id)
-    |> pick_a_card(results)
+    |> pick_a_card()
     |> case do
       {:error, _} = err -> {:reply, err, state}
-      {:ok, card, results} -> {:reply, {:ok, card}, %Deckky.Data{state | results: results}}
+      {:ok, card} ->
+        Persistence.increment_picked(card["card_id"])
+        {:reply, {:ok, card}, state}
     end
   end
 
-  def handle_cast({:set_correct, card_id}, %Deckky.Data{results: results} = state) do
-    results = results |> add_correct_result(card_id)
-    {:noreply, %Deckky.Data{state | results: results}}
+  def handle_cast({:set_correct, card_id}, state) do
+    Persistence.increment_correct(card_id)
+    {:noreply, state}
   end
 
-  def handle_cast({:set_error, card_id}, %Deckky.Data{results: results} = state) do
-    results = results |> add_error_result(card_id)
-    {:noreply, %Deckky.Data{state | results: results}}
+  def handle_cast({:set_error, card_id}, state) do
+    Persistence.increment_error(card_id)
+    {:noreply, state}
   end
 
   # Helpers
-  defp pick_a_card({:ok, []}, _results), do: {:error, "no groups in argument"}
-  defp pick_a_card({:ok, groups}, results) do
+  defp pick_a_card({:ok, []}), do: {:error, "no groups in argument"}
+  defp pick_a_card({:ok, groups}) do
     group = groups |> Enum.random()
     card =
       group["cards"]
@@ -93,9 +99,9 @@ defmodule Deckky.Data do
       |> Map.put("group_id", group["group_id"])
       |> Map.put("group_title", group["title"])
 
-    {:ok, card, results |> picked(card["card_id"])}
+    {:ok, card}
   end
-  defp pick_a_card({:error, _} = err, _results), do: err
+  defp pick_a_card({:error, _} = err), do: err
 
   defp get_argument_groups(arguments, argument_id) do
     case Map.get(arguments, argument_id) do
@@ -115,23 +121,5 @@ defmodule Deckky.Data do
 
   defp sort_by_counter(groups) do
     Enum.sort(groups, fn left, right -> Map.fetch!(left, "counter") < Map.fetch!(right, "counter") end)
-  end
-
-  defp picked(results, card_id) do
-    results |> Map.update(card_id, %{popped: 1, corrects: 0, errors: 0}, fn %{popped: popped} = result_card ->
-      %{result_card | popped: popped + 1}
-    end)
-  end
-
-  defp add_correct_result(results, card_id) do
-    results |> Map.update(card_id, %{popped: 0, corrects: 1, errors: 0}, fn %{corrects: corrects} = result_card ->
-      %{result_card | corrects: corrects + 1}
-    end)
-  end
-
-  defp add_error_result(results, card_id) do
-    results |> Map.update(card_id, %{popped: 1, corrects: 0, errors: 1}, fn %{errors: errors} = result_card ->
-      %{result_card | errors: errors + 1}
-    end)
   end
 end

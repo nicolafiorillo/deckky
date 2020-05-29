@@ -30,4 +30,5 @@ deckky-*.tar
 /.elixir_ls/
 
 /**/**.secret.exs
+deckky_storage
 
