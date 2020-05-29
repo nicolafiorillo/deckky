@@ -1,7 +1,12 @@
 defmodule Deckky.Persistence.Disk do
+  require Logger
+
   @spec open(any) :: {:error, any} | {:ok, any}
   def open(storage) do
-    {:ok, table} = :dets.open_file(storage, [type: :set])
+    file = prepare_destination_directory()
+    Logger.info("Datafile: #{file}")
+
+    {:ok, table} = :dets.open_file(storage, [type: :set, file: file])
     table
   end
 
@@ -19,4 +24,13 @@ defmodule Deckky.Persistence.Disk do
 
   @spec close(any) :: :ok | {:error, any}
   def close(storage), do: :dets.close(storage)
+
+  defp prepare_destination_directory() do
+    dest = System.user_home!() |> Path.join("deckky.data")
+    File.mkdir_p!(dest)
+
+    dest
+    |> Path.join("deckky.db")
+    |> String.to_charlist()
+  end
 end
