@@ -7,12 +7,12 @@ cards:
     card_id: A415A0B3-0932-441D-9540-975646C647AE
     question: "Come è definito il _Primo Soccorso_?"
     answer: "Il _Primo Soccorso_ è l'aiuto che chiunque può prestare a uno o più persone vittime di un incidente o di un malore nell'attesa
-      che intervenga un soccorso sanitario **qualificato**."
+      che intervenga un soccorso sanitario _qualificato."
 
   -
     card_id: B26D0C1D-E9B9-46C3-B01B-689D5D37B490
     question: "Come è definito il _Pronto Soccorso_?"
-    answer: "Il _Pronto Soccorso_ è effettuato da **personale specializzato** (infermieri, medici, soccorritori qualificati) con l'ausilio di attrezzature
+    answer: "Il _Pronto Soccorso_ è effettuato da _personale specializzato_ (infermieri, medici, soccorritori qualificati) con l'ausilio di attrezzature
       adeguate e terapie farmacologiche, direttamente sul luogo dell'evento, durante il trasporto sul mezzo di soccorso e infine in ospedale."
 
   -
@@ -36,7 +36,7 @@ cards:
   -
     card_id: D86FBFEB-D9BE-4DC9-96C9-64E03EB28311
     question: "Qual'è la regola didattica principale del Monitore?"
-    answer: "Prima spiegare il **come** poi si spiega il **perché** ed il **quando** accertandosi che tutti abbiano capito le premesse teoriche."
+    answer: "Prima spiegare il _come_ poi si spiega il _perché_ ed il _quando_ accertandosi che tutti abbiano capito le premesse teoriche."
 
   -
     card_id: 579AE483-A2D5-48DC-AD59-94E2E55491FB
@@ -50,3 +50,34 @@ cards:
       L'urgenza è sempre una situazione _gravissima_.
       Ci sono però casi gravissimi in cui non c'è estrema urgenza (sospetta frattura di colonna vertebrale). Qui vale la regola fondamentale del Primo soccorso: *meglio non fare che fare male*.\n\n
       Sono casi gravi e _urgentissimi_ l'arresto respiratorio, l'arresto cardiaco, le emorragie imponenti."
+
+  -
+    card_id: 1A2C7F44-0C5F-49A4-8DDB-D25A2DFE8827
+    question: "Quale condotta _non_ si deve tenere in caso di incidente?"
+    answer: "* trasportare l'infortunato senza capire cos'è successo
+      * dargli da bere (tantomeno alcolici)
+      * trasportarlo in ospedali sbagliati
+      * fuggire\n\n
+      Chiedere ai discenti..."
+
+  -
+    card_id: 274C564D-8E54-4E5D-96FE-74D1B864A71F
+    question: "Qual'è la prima cosa da tenere presente nel comportamento da tenere in caso di incidente?"
+    answer: "_Calma_ e _ragionamento_."
+
+  -
+    card_id: 913DC45E-6927-4AF2-B677-569D56272951
+    question: "Quali sono le 6 fasi del comportamento da tenere in caso di incidente?"
+    answer: "* valutare la situazione, lo scenario, l'ambiente
+      * valutare della dinamica dell'evento
+      * esaminare dell'infortunato
+      * allarme e chiamata
+      * praticare i gesti previsti dal Primo Soccorso
+      * completamento dell'assistenza"
+
+  -
+    card_id: F9E1D7D7-72CA-4278-B3A1-260EE830FFA3
+    question: "Quali sono le 3 fasi dell'_esame dell'infortunato_?"
+    answer: "* controllo delle funzioni vitali (o _controllo primario_)
+      * ispezione dell'infortunato (o _controllo secondario_)
+      * soccorso psicologico"
