@@ -54,10 +54,10 @@ cards:
   -
     card_id: 1A2C7F44-0C5F-49A4-8DDB-D25A2DFE8827
     question: "Quale condotta _non_ si deve tenere in caso di incidente?"
-    answer: "* trasportare l'infortunato senza capire cos'è successo
-      * dargli da bere (tantomeno alcolici)
-      * trasportarlo in ospedali sbagliati
-      * fuggire\n\n
+    answer: "* trasportare l'infortunato senza capire cos'è successo\n\n
+      * dargli da bere (tantomeno alcolici)\n\n
+      * trasportarlo in ospedali sbagliati\n\n
+      * fuggire (omissione di soccorso!)\n\n
       Chiedere ai discenti..."
 
   -
@@ -68,16 +68,99 @@ cards:
   -
     card_id: 913DC45E-6927-4AF2-B677-569D56272951
     question: "Quali sono le 6 fasi del comportamento da tenere in caso di incidente?"
-    answer: "* valutare la situazione, lo scenario, l'ambiente
-      * valutare della dinamica dell'evento
-      * esaminare dell'infortunato
-      * allarme e chiamata
-      * praticare i gesti previsti dal Primo Soccorso
+    answer: "* valutare la situazione, lo scenario, l'ambiente\n\n
+      * valutare della dinamica dell'evento\n\n
+      * esaminare dell'infortunato\n\n
+      * allarme e chiamata\n\n
+      * praticare i gesti previsti dal Primo Soccorso\n\n
       * completamento dell'assistenza"
 
   -
     card_id: F9E1D7D7-72CA-4278-B3A1-260EE830FFA3
     question: "Quali sono le 3 fasi dell'_esame dell'infortunato_?"
-    answer: "* controllo delle funzioni vitali (o _controllo primario_)
-      * ispezione dell'infortunato (o _controllo secondario_)
+    answer: "* controllo delle funzioni vitali (o _controllo primario_)\n\n
+      * ispezione dell'infortunato (o _controllo secondario_)\n\n
       * soccorso psicologico"
+
+  -
+    card_id: 3D7648E5-6F3B-4AA2-90B1-A8806D9D5179
+    question: "Cosa significa valutare la situazione, lo scenario, l'ambiente?"
+    answer: "Agire sempre in _autoprotezione_ senza manovre impulsive ed evitando ulteriori incidenti:\n\n
+      * allontanare la folla\n\n
+      * spegnere il motore dei veicoli coinvolti\n\n
+      * posizionare i segnalatori di incidente a distanza\n\n
+      * proibire di fumare\n\n
+      * usare guanti monouso\n\n
+      Insomma, proteggersi e proteggere."
+
+  -
+    card_id: A981458D-B9CD-4CED-87C1-A17F05E55439
+    question: "Cosa significa valutare della dinamica dell'evento?"
+    answer: "Capire se l'evento `´di natura _traumatica_ (le lesioni riscontrabili vanno collegate al tipo di infortunio),
+      _medica_ (informarsi sulle patoogie preesistenti del soggetto) o di _altra natura_.\n\n
+      Va fatta rapidamente."
+
+  -
+    card_id: DA0C1D0B-6D9C-4A15-8C97-B141175B5CC1
+    question: "Nell'esame dell'infortunato, cos'è il _controllo primario_?"
+    answer: "Verifica se la vittima è cosciente o non cosciente. E se incosciente, respira o non respira?\n\n
+      Ci sono emorragie imponenti?"
+
+  -
+    card_id: BB58D27A-DE33-44E6-97EA-A79957631268
+    question: "Nell'esame dell'infortunato, cos'è il _controllo secondario_?"
+    answer: "Si effettua valutando i _segni_ e i _sintomi_."
+
+  -
+    card_id: C9AF282D-C523-4478-8E2E-D406F00364FF
+    question: "Cosa si intende per _segni_?"
+    answer: "È definito _segno_ ciò che il soccorritore rileva sull'infortunato con l'udito, la vista, il tatto e l'odorato."
+
+  -
+    card_id: D82A5F03-D375-4E04-A739-D5F65F86685E
+    question: "Cosa si intende per _sintomi_?"
+    answer: "È definito _sintomo_ ciò che l'infortunato riferisce riguardo la sua condizione."
+
+  -
+    card_id: 5CFBCEC6-214C-49AE-A124-E25C08F993DC
+    question: "Nell'esame dell'infortunato, cosa si intende per allarme o chiamata?"
+    answer: "Telefonare o far telefonare al numero unico delle Emergenze 112."
+
+  -
+    card_id: 4C5FEAB7-E5C2-488D-87FF-8A99B5E0F268
+    question: "Nell'esame dell'infortunato, cosa significa praticare i gesti previsti dal Primo Soccorso?"
+    answer: "Applicare tutti i gesti indicati dal Primo Soccorso indicati per il tipo di incidente.\n\n\
+      Possono essere dalle semplici posizioni di attesa fino ad interventi urgenti da praticare sul posto (tamponamento di una emorragia, rianimazione
+      cardio-polmonare).\n\n
+      Agire sempre con cautela."
+
+  -
+    card_id: 1C92522C-1D4F-4F0F-B266-F89B9FF72691
+    question: "Nell'esame dell'infortunato, cosa significa completamento dell'assistenza?"
+    answer: "Significa non abbandonare l'infortunato finchè non lo si è _consegnato in mani esperte_, rimanendo a disposizione se necessario."
+
+  -
+    card_id: 4191F5F3-4555-40C3-A981-4DA8688316EA
+    question: "Cosa si intende per _autoprotezione_?"
+    answer: "È l'attenzione che il primo soccorritore deve porre alla _sicurezza_: sicurezza del soccorritore, sicurezza dell'infortunato, sicurezza dei presenti."
+
+  -
+    card_id: 9A2239FC-F06F-497B-AECA-874F7985B1B6
+    question: "Quando si deve considerare l'_autoprotezione_?"
+    answer: "_Sempre_: prima, durante e dopo."
+
+  -
+    card_id: 75DB20AB-A826-457C-BDC1-7D2C64057B06
+    question: "Quando si deve applicare la _Classificazione (o scala) delle urgenze_?"
+    answer: "Quando gli infortunati sono più di uno.\n\n
+      Si applica sia per l'ordine delle cure da prestare che per l'ordine di sgombero degli infortunati.\n\n
+      Ricordarsi che la manifestazione del dolore non è un elemento significativo nella valutazione di un infortunato: c'è gente che si dissangua in silenzio!"
+  
+  -
+    card_id: 64BDA104-1C39-4578-B7A9-491B50914068
+    question: "Quali sono i 4 livelli nella _Classificazione (o scala) delle urgenze_?"
+    answer: "* Estrema urgenza\n\n
+      * Urgenza primaria\n\n
+      * Urgenza secondaria\n\n
+      * Senza urgenza"
+

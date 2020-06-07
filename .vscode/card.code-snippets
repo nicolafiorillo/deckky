@@ -19,7 +19,7 @@
 	"Create a Deckky card": {
 		"prefix": "card",
 		"body": [
-			"-",
+			"  -",
 			"    card_id: $CLIPBOARD",
 			"    question: \"\"",
 			"    answer: \"\""
