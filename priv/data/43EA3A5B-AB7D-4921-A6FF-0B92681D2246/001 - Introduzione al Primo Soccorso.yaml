@@ -1,26 +1,27 @@
 group_id: CF4CBD36-B6E4-48B2-B1CA-37E6B174CCD3
 counter: 1
-title: Introduzione al Primo Soccorso
+title: 1. Introduzione al Primo Soccorso
 
 cards:
   -
     card_id: A415A0B3-0932-441D-9540-975646C647AE
     question: "Come è definito il _Primo Soccorso_?"
     answer: "Il _Primo Soccorso_ è l'aiuto che chiunque può prestare a uno o più persone vittime di un incidente o di un malore nell'attesa
-      che intervenga un soccorso sanitario *qualificato*."
+      che intervenga un soccorso sanitario **qualificato**."
 
   -
     card_id: B26D0C1D-E9B9-46C3-B01B-689D5D37B490
     question: "Come è definito il _Pronto Soccorso_?"
-    answer: "Il _Pronto Soccorso_ è effettuato da *personale specializzato* (infermieri, medici, soccorritori qualificati) con l'ausilio di attrezzature
+    answer: "Il _Pronto Soccorso_ è effettuato da **personale specializzato** (infermieri, medici, soccorritori qualificati) con l'ausilio di attrezzature
       adeguate e terapie farmacologiche, direttamente sul luogo dell'evento, durante il trasporto sul mezzo di soccorso e infine in ospedale."
 
   -
     card_id: D1D81739-5F14-4FD5-A77E-3F481C61B4EC
-    question: "Quel'è il ruolo del _primo soccorritore_?"
-    answer: "Nell'attesa sel soccorso qualificato, non è sostituirsi ad esso ma ma copre l'intervallo di tempo compiendo azioni precise ed evitando
-      interventi avventati e dannosi da parte di altri.\nEgli deve saper allertare il Servizio di Emergenza Sanitaria, valutare le funzioni vitali della vittima,
-      saper praticare RCP, fermare un'emorragia, porre la vittima in posizioni di attesa, ecc."
+    question: "Qual'è il ruolo del _primo soccorritore_?"
+    answer: "Il _primo soccorritore_ non si deve sostituire al soccorso qualificato, ma attenderlo e coprire questo intervallo di tempo compiendo azioni precise ed evitando
+      interventi avventati e dannosi da parte di altri.\n\n
+      Egli deve saper allertare il Servizio di Emergenza Sanitaria, valutare le funzioni vitali della vittima, saper praticare RCP, fermare un'emorragia,
+      porre la vittima in posizioni di attesa, ecc."
 
   -
     card_id: 1098226F-2A59-40B8-B671-0A73607B481F
@@ -35,7 +36,7 @@ cards:
   -
     card_id: D86FBFEB-D9BE-4DC9-96C9-64E03EB28311
     question: "Qual'è la regola didattica principale del Monitore?"
-    answer: "Prima spiegare il *come* poi si spiega il *perché* ed il *quando* accertandosi che tutti abbiano capito le premesse teoriche."
+    answer: "Prima spiegare il **come** poi si spiega il **perché** ed il **quando** accertandosi che tutti abbiano capito le premesse teoriche."
 
   -
     card_id: 579AE483-A2D5-48DC-AD59-94E2E55491FB
@@ -45,6 +46,7 @@ cards:
   -
     card_id: 346AA55C-C2B1-4135-AB67-C6A2126BB70B
     question: "Differenza tra _urgenza_ e _gravità_."
-    answer: "L'entità dell'urgenza è direttamente proporzionale al pericolo immediato di vita dell'infortunato. L'urgenza è sempre una situazione _gravissima_.\n
-      Ci sono però casi gravissimi in cui non c'è estrema urgenza (sospetta frattura di colonna vertebrale). Qui vale la regola fondamentale del Primo soccorso: *meglio non fare che fare male*.\n
+    answer: "L'entità dell'urgenza è direttamente proporzionale al pericolo immediato di vita dell'infortunato.\n\n
+      L'urgenza è sempre una situazione _gravissima_.
+      Ci sono però casi gravissimi in cui non c'è estrema urgenza (sospetta frattura di colonna vertebrale). Qui vale la regola fondamentale del Primo soccorso: *meglio non fare che fare male*.\n\n
       Sono casi gravi e _urgentissimi_ l'arresto respiratorio, l'arresto cardiaco, le emorragie imponenti."
