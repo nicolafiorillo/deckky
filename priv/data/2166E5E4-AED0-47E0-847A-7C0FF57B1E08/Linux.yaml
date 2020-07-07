@@ -1,0 +1,34 @@
+group_id: D6A46739-F146-48D6-8BE8-0882E7BEFFBF
+counter: 1
+title: Linux
+
+cards:
+  -
+    card_id: 274C246D-67C6-4E21-85D7-D2DA50A13F9B
+    question: "How to force apt to install missing dependencies?"
+    answer: "sudo apt-get -f install"
+
+  -
+    card_id: 095C391B-66E9-403A-BBCE-190927CA7AA9
+    question: "How to list apt installed packages?"
+    answer: "sudo apt list --installed\n\n
+    or\n\n
+    dpkg -l (in Debian)
+    "
+
+  -
+    card_id: 6FAB9061-1F0B-4E5D-9F2F-20D68FA72720
+    question: "How to list apt available packages?"
+    answer: "aptitude search {package_name}"
+
+  -
+    card_id: 7A5C7F4F-50B1-4A42-BAD6-BD5914F95886
+    question: "How to remove apt installed packages?"
+    answer: "sudo apt remove {package_name} (removes only binaries)\n\n
+    sudo apt remove --purge {package_name} or sudo apt purge {package_name} (removes binaries and configuration)"
+
+  -
+    card_id: E6F37FCC-50FF-4317-8551-06974282D0D7
+    question: "How to see systemctl log?"
+    answer: "sudo journalctl -u {service_name} -b\n\n
+    sudo apt remove --purge {package_name} or sudo apt purge {package_name} (removes binaries and configuration)"
